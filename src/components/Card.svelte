@@ -3,24 +3,26 @@
   export let title;
 </script>
 
-<div>
+<a href="#{title.replaceAll(" ", "-")}" class="Card">
   <picture>
     <source srcSet="assets/images/desktop/{img}" media="(min-width: 650px)" />
     <img src="assets/images/mobile/{img}" alt={title}>
   </picture>
   <h3>{title}</h3>
-</div>
+</a>
 
 <style>
+  .Card{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+  }
   img{
     max-width: 100%;
     display: block;
     margin: 20px auto;
     filter: brightness(0.7);
-  }
-  div{
-    position: relative;
-    margin: 0 auto;
+    transition: .4s ease;
   }
   h3{
     position: absolute;
@@ -34,10 +36,25 @@
     text-transform: uppercase;
     width: 130px;
     text-shadow: 0px 0px 30px #000;
+    transition: .4s ease;
+  }
+  .Card:hover img, .Card:focus img {
+      opacity: 0.4;
+  }
+  .Card:hover h3, .Card:focus h3 {
+    color: var(--Black);
   }
   @media screen and (min-width: 650px){
-    div {
-      width: max-content;
+    .Card {
+      margin: 0;
+      width: 256px;
+      height: 450px;
+      height: max-content;
+      box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.03);
+      text-decoration: none;
+    }
+    img {
+      margin: 0;
     }
   }
 </style>

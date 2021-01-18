@@ -18,4 +18,9 @@
 	.separator{
 		margin: 85px 24px;
 	}
+	@media screen and (min-width: 1024px){
+		.separator {
+			margin: 85px 160px;
+		}
+	}
 </style>
